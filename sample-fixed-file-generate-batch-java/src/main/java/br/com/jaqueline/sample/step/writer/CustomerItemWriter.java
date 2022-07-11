@@ -1,5 +1,6 @@
 package br.com.jaqueline.sample.step.writer;
 
+import antlr.StringUtils;
 import br.com.jaqueline.sample.model.Customer;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileHeaderCallback;
@@ -25,27 +26,35 @@ public class CustomerItemWriter {
     public FlatFileItemWriter<Customer> customerWriter() {
             return new FlatFileItemWriterBuilder<Customer>()
                     .name("customerWriter")
-                    .resource(fileConfig())
+                    .resource(getFile())
                     .shouldDeleteIfExists(true)
                     .headerCallback(getHeader())
                     .formatted()
-                    .format("%-11s %-15s %-7s %-26s")
+                    .format(getFormat())
                     .names(getNames())
                     .build();
     }
 
-    private Resource fileConfig() {
+    private Resource getFile() {
         Resource file = new FileSystemResource(outputResource + fileName);
         return file;
     }
 
     private FlatFileHeaderCallback getHeader() {
+        String spaceBetweenColumns = "\t";
         return writer -> {
-            writer.append("Name\t\t");
-            writer.append("LastName\t\t");
-            writer.append("Age\t\t");
+            writer.append("Name");
+            writer.append(spaceBetweenColumns.repeat( 2));
+            writer.append("LastName");
+            writer.append(spaceBetweenColumns.repeat( 2));
+            writer.append("Age");
+            writer.append(spaceBetweenColumns.repeat( 2));
             writer.append("E-mail");
         };
+    }
+
+    private String getFormat() {
+        return "%-11s %-15s %-7s %-26s";
     }
 
     private String[] getNames() {

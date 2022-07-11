@@ -9,12 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sample-read-file-write-file-batch-java" />
         <module name="sample-fixed-width-file-generate-batch-java" />
+        <module name="sample-fixed-file-generate-batch-java" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sample-fixed-file-generate-batch-java" options="-parameters" />
       <module name="sample-fixed-width-file-generate-batch-java" options="-parameters" />
       <module name="sample-read-file-write-file-batch-java" options="-parameters" />
     </option>
