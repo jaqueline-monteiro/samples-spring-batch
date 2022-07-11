@@ -1,6 +1,7 @@
 package br.com.jaqueline.sample.step.processor;
 
 import br.com.jaqueline.sample.model.Customer;
+import br.com.jaqueline.sample.model.Telephone;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.batch.item.ItemProcessor;
@@ -12,9 +13,12 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
 
     @Override
     public Customer process(Customer customer) throws Exception {
-        log.info("Executando processamento de dados e regras de negócio. ");
+        log.info("Incrementando objeto Customer para escrita do arquivo. ");
+        Telephone telephone = new Telephone();
+        telephone.setTelephone("21999711024");
         customer.setName(customer.getName().toUpperCase());
         customer.setLastName(customer.getLastName().toUpperCase());
+        customer.setTelephone(telephone.getTelephone());
         return customer;
     }
 
