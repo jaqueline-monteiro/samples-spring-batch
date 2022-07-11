@@ -1,6 +1,5 @@
 package br.com.jaqueline.sample.step.writer;
 
-import antlr.StringUtils;
 import br.com.jaqueline.sample.model.Customer;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.file.FlatFileHeaderCallback;
@@ -44,21 +43,25 @@ public class CustomerItemWriter {
         String spaceBetweenColumns = "\t";
         return writer -> {
             writer.append("Name");
-            writer.append(spaceBetweenColumns.repeat( 2));
+            writer.append(spaceBetweenColumns.repeat(2));
             writer.append("LastName");
-            writer.append(spaceBetweenColumns.repeat( 2));
+            writer.append(spaceBetweenColumns.repeat(2));
             writer.append("Age");
-            writer.append(spaceBetweenColumns.repeat( 2));
+            writer.append(spaceBetweenColumns.repeat(2));
             writer.append("E-mail");
+            writer.append(spaceBetweenColumns.repeat(6));
+            writer.append("Telephone");
+            writer.append(spaceBetweenColumns.repeat(2));
+            writer.append("Address");
         };
     }
 
     private String getFormat() {
-        return "%-11s %-15s %-7s %-26s";
+        return "%-11s %-15s %-7s %-27s %-15s %-49s";
     }
 
     private String[] getNames() {
-        return new String[]{"name", "lastName", "age", "email"};
+        return new String[]{"name", "lastName", "age", "email", "telephone", "address"};
     }
 
 }
