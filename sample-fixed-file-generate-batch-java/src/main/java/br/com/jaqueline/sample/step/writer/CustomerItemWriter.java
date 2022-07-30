@@ -57,11 +57,24 @@ public class CustomerItemWriter {
     }
 
     private String getFormat() {
-        return "%-11s %-15s %-7s %-27s %-15s %-49s";
+        return new StringBuilder()
+                .append("%-11s")
+                .append("%-15s")
+                .append("%-7s")
+                .append("%-27s")
+                .append("%-15s")
+                .append("%-49s")
+                .toString();
     }
 
     private String[] getNames() {
-        return new String[]{"name", "lastName", "age", "email", "telephone", "address"};
+        return new String[]{
+                "name",
+                "lastName",
+                "age",
+                "email",
+                "telephone",
+                "address"};
     }
 
 }

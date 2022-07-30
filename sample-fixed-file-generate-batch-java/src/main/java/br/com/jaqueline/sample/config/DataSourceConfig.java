@@ -11,25 +11,25 @@ import javax.sql.DataSource;
 @Configuration
 public class DataSourceConfig {
 
-    @Value("${teste.batch.datasource.hikari.connection-timeout}")
+    @Value("${spring.datasource.hikari.connection-timeout}")
     private Long connectionTimeout;
-    @Value("${teste.batch.datasource.hikari.minimum-idle}")
+    @Value("${spring.datasource.hikari.minimum-idle}")
     private int minimumIdle;
-    @Value("${teste.batch.datasource.hikari.maximum-pool-size}")
+    @Value("${spring.datasource.hikari.maximum-pool-size}")
     private int maximumPoolSize;
-    @Value("${teste.batch.datasource.hikari.idle-timeout}")
+    @Value("${spring.datasource.hikari.idle-timeout}")
     private Long idleTimeout;
-    @Value("${teste.batch.datasource.hikari.max-lifetime}")
+    @Value("${spring.datasource.hikari.max-lifetime}")
     private Long maxLifetime;
-    @Value("${teste.batch.datasource.hikari.pool-name}")
+    @Value("${spring.datasource.hikari.pool-name}")
     private String poolName;
-    @Value("${teste.batch.datasource.url}")
+    @Value("${spring.datasource.url}")
     private String url;
-    @Value("${teste.batch.datasource.username}")
+    @Value("${spring.datasource.username}")
     private String username;
-    @Value("${teste.batch.datasource.password}")
+    @Value("${spring.datasource.password}")
     private String password;
-    @Value("${teste.batch.datasource.driver-class-name}")
+    @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
 
     @Bean
