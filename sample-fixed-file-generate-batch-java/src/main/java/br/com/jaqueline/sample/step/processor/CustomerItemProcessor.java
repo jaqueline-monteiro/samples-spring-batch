@@ -13,7 +13,7 @@ public class CustomerItemProcessor implements ItemProcessor<Customer, Customer> 
 
     @Override
     public Customer process(Customer customer) throws Exception {
-        log.info("Incrementando objeto Customer para escrita do arquivo. ");
+        log.info("Incrementing customer object to write into the file. ");
         Telephone telephone = new Telephone();
         telephone.setTelephone("21999711024");
         customer.setName(customer.getName().toUpperCase());

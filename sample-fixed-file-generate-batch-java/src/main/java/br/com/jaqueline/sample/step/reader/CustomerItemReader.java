@@ -28,12 +28,21 @@ public class CustomerItemReader {
     }
 
     private Range[] getRanges() {
-        return new Range[]{new Range(1, 10), new Range(11, 20),
-                new Range(21, 23), new Range(24, 43),};
+        return new Range[]{
+                new Range(1, 10),
+                new Range(11, 20),
+                new Range(21, 23),
+                new Range(24, 43)
+        };
     }
 
     private String[] getNames() {
-        return new String[]{"name", "lastName", "age", "email"};
+        return new String[]{
+                "name",
+                "lastName",
+                "age",
+                "email"
+        };
     }
 
 }
